@@ -407,11 +407,18 @@ curl -X PUT --data '<?php $f=fopen("/etc/passwd","r"); echo fread($f,filesize("/
 
 # A6 - Sensitive Data Exposure 
 
-### Base64 Encoding (Secret)
+### Base64 Encoding (Secret) 
+#### Level: low
 
 Use Burp to get cookie
 
 ![](https://github.com/skiptomyliu/solutions-bwapp/blob/master/screenshots/insecure_crypt_storage_3.png)
+#### Level: Medium
+Using Burp to get cookie
+secret=83785efbbef1b4cdf3260c5e6505f7d2261f738d
+From the lenth of cookie, we can guess it's SHA-1 hashed. Decrypt it using google/Online cracking tool
+https://sha1.gromweb.com/?hash=83785efbbef1b4cdf3260c5e6505f7d2261f738d
+--> Any bugs?
 
 ### Heartbleed Vulnerability
 
